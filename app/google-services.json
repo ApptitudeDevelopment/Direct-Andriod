@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "275753575698",
+    "firebase_url": "https://direct-ios-app.firebaseio.com",
+    "project_id": "direct-ios-app",
+    "storage_bucket": "direct-ios-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275753575698:android:5e0127dd1c7af12f067fcb",
+        "android_client_info": {
+          "package_name": "com.example.directappandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275753575698-jkaqd1a3epdsfeap3966en06r81m96rb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.directappandroid",
+            "certificate_hash": "524eb1a4c0800fddb682f43c1b6f5adcf67f71bb"
+          }
+        },
+        {
+          "client_id": "275753575698-o90er8rbf36klpkhsr2hjrs9ac610q4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv7rteFh6sFgxp7smJ4lYBPLLnK-TTgrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275753575698-o90er8rbf36klpkhsr2hjrs9ac610q4a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "275753575698-h3pj47l228c16hk55dh62ai46sfe3t6a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Apptitude.Direct-iOS"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
