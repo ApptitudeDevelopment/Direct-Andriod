@@ -57,6 +57,7 @@ public class FindPeopleActivity extends AppCompatActivity {
                     Toast.makeText(FindPeopleActivity.this, "Please Enter a Name", Toast.LENGTH_SHORT).show();
                 } else {
                     str = s.toString();
+                    onStart();
                 }
             }
 
