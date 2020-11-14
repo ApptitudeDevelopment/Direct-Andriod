@@ -31,24 +31,18 @@ public class FindPeopleActivity extends AppCompatActivity {
     private RecyclerView findFriendList;
     private EditText searchET;
     private String str = "";
-
     private DatabaseReference usersRef;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_people);
-
         searchET = findViewById(R.id.search_user_text);
         findFriendList = findViewById(R.id.find_friends_list);
         findFriendList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
         usersRef = FirebaseDatabase.getInstance().getReference().child("User");  //ref to database
-
         searchET.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -60,10 +54,9 @@ public class FindPeopleActivity extends AppCompatActivity {
                     onStart();
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
-
+                
             }
         });
     }
@@ -120,16 +113,12 @@ public class FindPeopleActivity extends AppCompatActivity {
         Button videoCallBtn;
         ImageView profileImageView;
         RelativeLayout cardView;
-
-
         public FindFriendsViewHolder(@NonNull View itemView) {
             super(itemView);
-
             userNameTxt = itemView.findViewById(R.id.name_contact);
             videoCallBtn = itemView.findViewById(R.id.call_btn);
             profileImageView = itemView.findViewById(R.id.image_contact);
             cardView = itemView.findViewById(R.id.card_view1);
-
             videoCallBtn.setVisibility(View.GONE);
         }
     }

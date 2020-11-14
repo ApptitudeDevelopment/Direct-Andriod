@@ -40,8 +40,6 @@ public class ContactsActivity extends AppCompatActivity {
                 startActivity(findPeopleIntent);
             }
         });
-
-
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
