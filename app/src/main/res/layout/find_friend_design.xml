@@ -47,7 +47,8 @@
             android:text="Accept Request"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="13dp"></Button>
+            android:textSize="13dp"
+            android:visibility="gone"></Button>
 
         <Button
             android:id="@+id/request_decline_btn"
@@ -63,7 +64,8 @@
             android:text="Cancel Request"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="13dp"></Button>
+            android:textSize="13dp"
+            android:visibility="gone"></Button>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
