@@ -99,6 +99,8 @@ public class ContactsActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        validateUser();
+
         FirebaseRecyclerOptions<Contacts> options
                 = new FirebaseRecyclerOptions.Builder<Contacts>().setQuery(contactsRef.child(currentUserId), Contacts.class).build();
 
@@ -118,6 +120,15 @@ public class ContactsActivity extends AppCompatActivity {
                             holder.userNameTxt.setText(userName);
                             Picasso.get().load(profileImage).into(holder.profileImageView);
                         }
+                        holder.callBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent callingIntent = new Intent(ContactsActivity.this, CallingActivity.class);
+                                callingIntent.putExtra("visit_user_id", listUserID);
+                                startActivity(callingIntent);
+
+                            }
+                        });
                     }
 
                     @Override
@@ -151,5 +162,26 @@ public class ContactsActivity extends AppCompatActivity {
             callBtn = itemView.findViewById(R.id.call_btn);
             profileImageView = itemView.findViewById(R.id.image_contact);
         }
+    }
+
+    private void  validateUser() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+        reference.child("User").child(currentUserId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (!dataSnapshot.exists())
+                {
+                    Intent settingIntent = new Intent(ContactsActivity.this, SettingsActivity.class);
+                    startActivity(settingIntent);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }
