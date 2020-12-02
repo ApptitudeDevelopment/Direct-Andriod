@@ -38,6 +38,8 @@ public class ContactsActivity extends AppCompatActivity {
     private String currentUserId;
     private String userName = "", profileImage = "";
 
+    private String calledBy = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +102,10 @@ public class ContactsActivity extends AppCompatActivity {
         super.onStart();
 
         validateUser();
+
+        // check if someone is calling (any receiving call)
+        checkForReceivingCall();
+
 
         FirebaseRecyclerOptions<Contacts> options
                 = new FirebaseRecyclerOptions.Builder<Contacts>().setQuery(contactsRef.child(currentUserId), Contacts.class).build();
@@ -183,5 +189,30 @@ public class ContactsActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void checkForReceivingCall()
+    {
+        usersRef.child(currentUserId)
+                .child("Ringing")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot)
+                    {
+                        if (dataSnapshot.hasChild("ringing"))
+                        {
+                            calledBy = dataSnapshot.child("ringing").getValue().toString();
+
+                            Intent callingIntent = new Intent(ContactsActivity.this, CallingActivity.class);
+                            callingIntent.putExtra("visit_user_id", calledBy);
+                            startActivity(callingIntent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
     }
 }
