@@ -54,4 +54,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //OpenTok Video Call
+    implementation 'com.opentok.android:opentok-android-sdk:2.15.3'
+
+    //Permission for Camera Usage
+    implementation 'pub.devrel:easypermissions:0.4.0'
+
 }
